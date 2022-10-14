@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: traefik-web-service-http
+  namespace: traefik-ingress-controller-ns
+  labels:
+    app: traefik-ingress-controller
+spec:
+  type: LoadBalancer
+  ports:
+    - targetPort: web
+      port: 80
+  selector:
+    app: traefik-ingress-controller

@@ -1,0 +1,40 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: traefik-ingress-controller-deployment
+  namespace: traefik-ingress-controller-ns
+  labels:
+    app: traefik-ingress-controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: traefik-ingress-controller
+  template:
+    metadata:
+      labels:
+        app: traefik-ingress-controller
+    spec:
+      serviceAccountName: traefik-ingress-controller-account
+      containers:
+        - name: traefik-ingress-controller
+          image: traefik:v2.8.1
+          imagePullPolicy: Never
+          args:
+            - --api.dashboard=false
+#            - --traefik.enable=true
+#            - --traefik.http.routers.dashboard.rule=PathPrefix(`/api`) || PathPrefix(`/dashboard`)
+#            - --traefik.http.routers.dashboard.entrypoints=traefik
+#            - --traefik.http.routers.dashboard.service=api@internal
+            - --providers.kubernetesingress
+            - --providers.kubernetescrd
+            - --entrypoints.web.Address=:80
+            - --entrypoints.websecure.Address=:443
+#            - --entrypoints.web.http.redirections.entryPoint.to=websecure
+          ports:
+            - name: web
+              containerPort: 80
+            - name: websecure
+              containerPort: 443
+            - name: dashboard
+              containerPort: 8080

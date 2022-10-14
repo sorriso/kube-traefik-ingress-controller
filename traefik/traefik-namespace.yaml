@@ -1,0 +1,6 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: traefik-ingress-controller-ns
+  labels:
+    app: traefik-ingress-controller
