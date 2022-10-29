@@ -28,6 +28,5 @@ Kubernetes yaml configuration files for installing traefik (v2.9.1) ingress cont
 
 via ingress kube object:
 
-> apiVersion: networking.k8s.io/v1
->
-> kind: Ingress
+    apiVersion: networking.k8s.io/v1
+    kind: Ingress
