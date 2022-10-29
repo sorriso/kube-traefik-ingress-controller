@@ -8,7 +8,7 @@ Kubernetes yaml configuration files for installing traefik (v2.9.1) ingress cont
 
 > DISCLAMER : This stuff is just for helping people to understand how things work, it is NOT for production use, I do NOT provide any support on it
 
-## prerequisite:
+## Prerequisites:
 
 1. Rancher desktop (tested on V1.6.1) installed locally & running (tested on OSX 12.6) with:
 
@@ -29,4 +29,5 @@ Kubernetes yaml configuration files for installing traefik (v2.9.1) ingress cont
 via ingress kube object:
 
 > apiVersion: networking.k8s.io/v1
+
 > kind: Ingress
