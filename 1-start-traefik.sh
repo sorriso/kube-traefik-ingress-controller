@@ -1,10 +1,8 @@
 start=`date +%s`
 
-nerdctl -n k8s.io pull traefik:v2.8.1
-
 kubectl apply -n traefik-ingress-controller-ns -f traefik/traefik-namespace.yaml
 
-sleep 5 
+sleep 5
 
 kubectl apply -n traefik-ingress-controller-ns -f traefik
 

@@ -18,8 +18,8 @@ spec:
       serviceAccountName: traefik-ingress-controller-account
       containers:
         - name: traefik-ingress-controller
-          image: traefik:v2.8.1
-          imagePullPolicy: Never
+          image: traefik:v2.9.1
+          imagePullPolicy: Always
           args:
             - --api.dashboard=false
 #            - --traefik.enable=true
